@@ -81,12 +81,13 @@ class App extends Component {
   filterByColor() {
     let color = this.selectedColor.value;
 
-    // axios.get("http://joes-autos.herokuapp.com/api/vehicles").then(res => { 
-    //   console.log(res.data);
-    //   this.setState( {
-    //     vehiclesToDisplay: res.data.color
-    //   })
-    // })
+    axios.get("http://joes-autos.herokuapp.com/api/vehicles").then(res => { 
+      console.log(res.data);
+        const colorFilter = res.data.filter( e => e.make === color)
+      this.setState( {
+        vehiclesToDisplay: colorFilter
+      })
+    })
 
     // axios (GET)
     // setState with response -> vehiclesToDisplay
